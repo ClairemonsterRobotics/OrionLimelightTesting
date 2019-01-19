@@ -59,7 +59,7 @@ public class AutonomousRight extends Command {
         switch (autonState) {
         case AS_foward1: {
             if (encoderAvg < foward1_Distance) { // if not at the target location
-                Robot.driveSub.driveStraight(.5); // drive straight at some power
+                Robot.driveSub.driveStraight(.5); // drive straight at some power l
             } else {
                 Robot.driveSub.stop();
                 resetEncoders();
