@@ -86,6 +86,7 @@ public class OI {
         setPosHatch1.whenPressed(new setPosition());
         setPosBottom = new JoystickButton(proJoystick, 3);
         setPosBottom.whenPressed(new setPosition());
+        
         xBOXController = new Joystick(0);
         
         climbButton = new JoystickButton(xBOXController, 3);
