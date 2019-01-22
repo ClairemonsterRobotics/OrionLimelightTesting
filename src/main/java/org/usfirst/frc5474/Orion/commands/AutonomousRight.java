@@ -63,7 +63,7 @@ public class AutonomousRight extends Command {
             if (encoderAvg < foward1_Distance) { // if not at the target location
                 SmartDashboard.putString("", "this is to see if this code works");
                 Robot.driveSub.driveStraight(.25); // drive straight at some power l
-                SmartDashboard.putString("", "we forgot that sully didnt have encoders");
+                SmartDashboard.putString("", "we forgot sully doesnt have encoders");
             } else {
                 Robot.driveSub.stop();
                 resetEncoders();
