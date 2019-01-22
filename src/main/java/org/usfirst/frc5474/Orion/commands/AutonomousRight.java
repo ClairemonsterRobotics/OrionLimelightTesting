@@ -65,12 +65,16 @@ public class AutonomousRight extends Command {
                 resetEncoders();
                 autonState++;
             }
-
+            
             break;
         }
         case (AS_right): {
             if(encoderAvg < right_Distance){
                 Robot.driveSub.turnRight(.5);
+            } else {
+                Robot.driveSub.stop();
+                resetEncoders();
+                autonState++;
             }
             break;
         }
