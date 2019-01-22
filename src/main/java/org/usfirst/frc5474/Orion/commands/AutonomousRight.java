@@ -11,6 +11,8 @@
 package org.usfirst.frc5474.Orion.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc5474.Orion.Robot;
 import org.usfirst.frc5474.Orion.subsystems.driveSub;
 
@@ -59,7 +61,9 @@ public class AutonomousRight extends Command {
         switch (autonState) {
         case AS_foward1: {
             if (encoderAvg < foward1_Distance) { // if not at the target location
-                Robot.driveSub.driveStraight(.5); // drive straight at some power l
+                SmartDashboard.putString("", "lets go orion lets go clap clap");
+                Robot.driveSub.driveStraight(.25); // drive straight at some power l
+                SmartDashboard.putString("", "lets go");
             } else {
                 Robot.driveSub.stop();
                 resetEncoders();
@@ -70,7 +74,7 @@ public class AutonomousRight extends Command {
         }
         case (AS_right): {
             if(encoderAvg < right_Distance){
-                Robot.driveSub.turnRight(.5);
+                Robot.driveSub.turnRight(.25);
             } else {
                 Robot.driveSub.stop();
                 resetEncoders();
