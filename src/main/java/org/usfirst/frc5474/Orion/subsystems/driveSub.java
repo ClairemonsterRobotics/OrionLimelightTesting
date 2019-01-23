@@ -66,14 +66,14 @@ public class driveSub extends Subsystem {
 
         double encoderTickConstant = 1/(60/Math.PI); //gives approx 1in/1 encoder tick
 
-        rightPairEncoder = new Encoder(6, 7, false); 
+        rightPairEncoder = new Encoder(4, 5, false); 
         addChild("rightPairEncoder",rightPairEncoder);
         rightPairEncoder.setDistancePerPulse(1.0);
         rightPairEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
         rightPairEncoder.setIndexSource(8, IndexingType.kResetOnRisingEdge);
         rightPairEncoder.setDistancePerPulse(encoderTickConstant);
         
-        leftPairEncoder = new Encoder(9, 10, false);
+        leftPairEncoder = new Encoder(6, 7, false);
         addChild("leftPairEncoder",leftPairEncoder);
         leftPairEncoder.setDistancePerPulse(1.0);
         leftPairEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
