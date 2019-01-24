@@ -64,21 +64,21 @@ public class driveSub extends Subsystem {
         diffDrive.setExpiration(0.1);
         diffDrive.setMaxOutput(1.0);
 
-        double encoderTickConstant = 1/(60/Math.PI); //gives approx 1in/1 encoder tick
+        double encoderTickConstant = 1/(60/Math.PI); //gives approx 1in/1 encoder tick (CHECK YOUR MATH!)
 
         
-        rightPairEncoder = new Encoder(9, 10, false); 
+        rightPairEncoder = new Encoder(6, 7, false); 
         addChild("rightPairEncoder",rightPairEncoder);
         rightPairEncoder.setDistancePerPulse(1.0); //set twice?
         rightPairEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-        rightPairEncoder.setIndexSource(11, IndexingType.kResetOnRisingEdge);
+        //rightPairEncoder.setIndexSource(11, IndexingType.kResetOnRisingEdge);
         rightPairEncoder.setDistancePerPulse(encoderTickConstant);
         
-        leftPairEncoder = new Encoder(12, 13, false);
+        leftPairEncoder = new Encoder(8, 9, false);
         addChild("leftPairEncoder",leftPairEncoder);
         leftPairEncoder.setDistancePerPulse(1.0); //set twice?
         leftPairEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-        leftPairEncoder.setIndexSource(14, IndexingType.kResetOnRisingEdge);
+        //leftPairEncoder.setIndexSource(14, IndexingType.kResetOnRisingEdge);
         leftPairEncoder.setDistancePerPulse(encoderTickConstant);
         
 

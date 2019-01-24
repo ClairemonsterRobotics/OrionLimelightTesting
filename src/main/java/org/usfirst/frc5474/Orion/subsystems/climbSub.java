@@ -50,11 +50,11 @@ public class climbSub extends Subsystem {
         addChild("winchMotor",winchMotor);
         winchMotor.setInverted(false);
         
-        winchEncoder = new Encoder(6, 7, false);
+        winchEncoder = new Encoder(4, 5, false);
         addChild("winchEncoder",winchEncoder);
         winchEncoder.setDistancePerPulse(1.0);
         winchEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-        winchEncoder.setIndexSource(8, IndexingType.kResetOnRisingEdge);
+        //winchEncoder.setIndexSource(8, IndexingType.kResetOnRisingEdge);
         
         barMotor = new Spark(3);
         addChild("barMotor",barMotor);
