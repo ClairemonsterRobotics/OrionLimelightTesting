@@ -53,7 +53,6 @@ public class AutonomousCenter extends Command {
         Robot.driveSub.leftPairEncoder.setDistancePerPulse(6*Math.PI/360);
         Robot.driveSub.rightPairEncoder.setDistancePerPulse(6*Math.PI/360); //6 inch wheel, one pulse per inch
         Robot.driveSub.resetEncoders();
-       
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -91,15 +90,6 @@ public class AutonomousCenter extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
-    }
-
-
-    public int distanceToTicks(double distance, String unit) { // in progress
-        if (unit.toLowerCase().equals("feet")) {
-            return ((int) (Math.round(distance * 12))); // 12 is current foot to tick conversion
-        } else {
-            return 0;
-        }
     }
 }
 

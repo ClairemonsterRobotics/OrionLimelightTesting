@@ -136,21 +136,23 @@ public class driveSub extends Subsystem {
    // }
     SmartDashboard.putNumber("Compensation Multiplier (Left)", compensationMult);
         //compensationMult = deltaDistance + 1;
-        diffDrive.arcadeDrive(power, 0, true);
+       // diffDrive.arcadeDrive(power, 0, true); //not sure what this line does
         leftMotorPair.set(-power * compensationMult);
         rightMotorPair.set(power);
     }
     public void turnRight(double power) {
-		// used for autonomous mode
+		rightMotorPair.set(0);
 		leftMotorPair.set(power);
     }
     public void turnLeft(double power) {
-		// used for autonomous mode
+		leftMotorPair.set(0);
 		rightMotorPair.set(power);
     }
     public void stop() {
-		// used for autonomous mode
-        diffDrive.arcadeDrive(0, 0, true);
+        // used for autonomous mode
+        leftMotorPair.set(0);
+        rightMotorPair.set(0);
+        //diffDrive.arcadeDrive(0, 0, true);
     }
     public void resetEncoders() {
         Robot.driveSub.rightPairEncoder.reset();
@@ -163,30 +165,4 @@ public class driveSub extends Subsystem {
 
 }
 
-
-
-/*
-public void driveStraight(double power) { //reset endoders before calling this
-        // used for autonomous mode
-        
-       deltaDistance = leftPairEncoder.getDistance()/-rightPairEncoder.getDistance();
-      //deltaDistance = currentLeftDistance/currentRightDistance;
-        compensationMult = 1;
-       // if((leftPairEncoder.getDistance() + rightPairEncoder.getDistance()) /2 > 10){
-        if(deltaDistance >= 1.05){
-            compensationMult = 1.2;
-        } 
-        if(deltaDistance <= .95){
-            compensationMult = .8;
-        }else{
-            compensationMult = 1;
-        }
-   // }
-    SmartDashboard.putNumber("Compensation Multiplier (Left)", compensationMult);
-        //compensationMult = deltaDistance + 1;
-        diffDrive.arcadeDrive(power, 0, true);
-        leftMotorPair.set(-power * compensationMult);
-        rightMotorPair.set(power);
-    }
-    */
 
