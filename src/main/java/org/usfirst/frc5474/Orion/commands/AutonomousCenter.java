@@ -22,7 +22,7 @@ import org.usfirst.frc5474.Orion.subsystems.driveSub;
 public class AutonomousCenter extends Command {
     public int autonState = 1;
     public final int AS_foward1 = 1;
-    public final double foward1_Distance = 50; // 18 inches
+    public final double foward1_Distance = 100; // 18 inches
     public final int AS_right = 2;
     public final int right_Distance = (int)Math.round(12 * 2 * Math.PI); // 4pi ft / 180 degree turn; 2pi for 90 deg
     public final int AS_foward2 = 3;
@@ -53,21 +53,23 @@ public class AutonomousCenter extends Command {
         Robot.driveSub.leftPairEncoder.setDistancePerPulse(6*Math.PI/360);
         Robot.driveSub.rightPairEncoder.setDistancePerPulse(6*Math.PI/360); //6 inch wheel, one pulse per inch
         Robot.driveSub.resetEncoders();
+        currentLeftDistance = 0;
+        currentRightDistance = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        currentRightDistance = - Robot.driveSub.rightPairEncoder.getDistance();
+        currentRightDistance =  Robot.driveSub.rightPairEncoder.getDistance();
         SmartDashboard.putNumber("right distance", currentRightDistance);
-        currentLeftDistance = Robot.driveSub.leftPairEncoder.getDistance();
+        currentLeftDistance = - Robot.driveSub.leftPairEncoder.getDistance();
         SmartDashboard.putNumber("left distance", currentLeftDistance);
 
 
         double distanceAvg = (currentRightDistance + currentLeftDistance) / 2; // 1/19.1 res for 1:1 inch:tick
 
             if (distanceAvg < foward1_Distance) { // if not at the target location
-                Robot.driveSub.driveStraight(.5); // drive straight at some power
+                Robot.driveSub.driveStraight(.3); // drive straight at some power
             } else {
                 Robot.driveSub.stop();
             }
