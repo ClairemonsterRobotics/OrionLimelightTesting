@@ -148,25 +148,26 @@ public class driveSub extends Subsystem {
     public void driveStraight(double power) { //reset endoders before calling this
         // used for autonomous mode
         SmartDashboard.putBoolean("Compensation Error!!!", compesationError);
-       deltaDistance = leftPairEncoder.getDistance()/-rightPairEncoder.getDistance();
-      //deltaDistance = currentLeftDistance/currentRightDistance;
+        deltaDistance = leftPairEncoder.getDistance()/-rightPairEncoder.getDistance();
+        //deltaDistance = currentLeftDistance/currentRightDistance;
         compensationMult = 1;
-       // if((leftPairEncoder.getDistance() + rightPairEncoder.getDistance()) /2 > 10){
-       compensationMult = (4*(deltaDistance-1))+1;
-       if(compensationMult > 2 || compensationMult < .1){
+        // if((leftPairEncoder.getDistance() + rightPairEncoder.getDistance()) /2 > 10){
+        compensationMult = (4*(deltaDistance-1))+1;
+        if(compensationMult > 2 || compensationMult < .1){
             compesationError = true;
-           compensationMult = 1;
-       }
-       else{
+            compensationMult = 1;
+        }
+        else{
           // compesationError = false;
-       }
-   // }
-    SmartDashboard.putNumber("Compensation Multiplier (Left)", compensationMult);
+        }
+        // }
+        SmartDashboard.putNumber("Compensation Multiplier (Left)", compensationMult);
         //compensationMult = deltaDistance + 1;
-       // diffDrive.arcadeDrive(power, 0, true); //not sure what this line does
+        // diffDrive.arcadeDrive(power, 0, true); //not sure what this line does
         leftMotorPair.set(power);
         rightMotorPair.set(-power * compensationMult * .80);
     }
+    
     public void turnRight(double power) {
 		rightMotorPair.set(0);
 		leftMotorPair.set(power);
@@ -175,8 +176,13 @@ public class driveSub extends Subsystem {
 		leftMotorPair.set(0);
 		rightMotorPair.set(power);
     }
-    public void turnDegrees(int degrees){
-
+    public void swivelRight(double power){
+		leftMotorPair.set(power);
+		rightMotorPair.set(power);
+    }
+    public void swivelLeft(double power){
+		leftMotorPair.set(-power);
+		rightMotorPair.set(-power);
     }
     public void stop() {
         // used for autonomous mode
