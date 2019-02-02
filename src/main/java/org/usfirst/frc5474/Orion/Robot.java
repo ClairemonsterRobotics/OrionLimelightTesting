@@ -11,15 +11,19 @@
 
 package org.usfirst.frc5474.Orion;
 
-import edu.wpi.first.wpilibj.Compressor;
+import org.usfirst.frc5474.Orion.commands.AutonomousCenter;
+import org.usfirst.frc5474.Orion.commands.AutonomousLeft;
+import org.usfirst.frc5474.Orion.commands.AutonomousRight;
+import org.usfirst.frc5474.Orion.subsystems.armSub;
+import org.usfirst.frc5474.Orion.subsystems.climbSub;
+import org.usfirst.frc5474.Orion.subsystems.driveSub;
+import org.usfirst.frc5474.Orion.subsystems.pClawSub;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc5474.Orion.commands.*;
-import org.usfirst.frc5474.Orion.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the

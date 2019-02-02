@@ -11,11 +11,20 @@
 
 package org.usfirst.frc5474.Orion;
 
-import org.usfirst.frc5474.Orion.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc5474.Orion.commands.arcadeDrive;
+import org.usfirst.frc5474.Orion.commands.climbSequence;
+import org.usfirst.frc5474.Orion.commands.closeClaw;
+import org.usfirst.frc5474.Orion.commands.dropBar;
+import org.usfirst.frc5474.Orion.commands.manualArm;
+import org.usfirst.frc5474.Orion.commands.openClaw;
+import org.usfirst.frc5474.Orion.commands.pushBall;
+import org.usfirst.frc5474.Orion.commands.runWinch;
+import org.usfirst.frc5474.Orion.commands.setPosition;
+import org.usfirst.frc5474.Orion.commands.tractionDrive;
+
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc5474.Orion.subsystems.*;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -64,6 +73,7 @@ public class OI {
     public JoystickButton setPosHatch3;
     public JoystickButton setPosBall3;
     public JoystickButton setPreGamePos;
+    public JoystickButton manualArmToggle;
     public Joystick proJoystick;
     public final int uprightVal = 3;
     public final int dropAngleVal = 2;
@@ -91,10 +101,13 @@ public class OI {
         setPosHatch1 = new JoystickButton(proJoystick, 11);
         setPosHatch1.whenPressed(new setPosition(2.0, dropAngleVal));
         setPosBottom = new JoystickButton(proJoystick, 3);
-        setPosBottom.whenPressed(new setPosition(1.0, flatVal));        
-        xBOXController = new Joystick(0);
+        setPosBottom.whenPressed(new setPosition(1.0, flatVal));
         //temp. numbers for the setpos
-        
+        manualArmToggle = new JoystickButton(proJoystick, 4);
+        manualArmToggle.whenPressed(new manualArm());
+
+        xBOXController = new Joystick(0);
+
         climbButton = new JoystickButton(xBOXController, 3);
         climbButton.whileHeld(new climbSequence());
         barButton = new JoystickButton(xBOXController, 2);

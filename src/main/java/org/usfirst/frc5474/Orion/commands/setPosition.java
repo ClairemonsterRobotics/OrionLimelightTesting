@@ -12,7 +12,7 @@ package org.usfirst.frc5474.Orion.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc5474.Orion.subsystems.armSub.*;
+//import org.usfirst.frc5474.Orion.subsystems.armSub.*;
 
 import org.usfirst.frc5474.Orion.Robot;
 
@@ -22,7 +22,7 @@ import org.usfirst.frc5474.Orion.Robot;
 public class setPosition extends Command {
 
     public int encHatch1 = (int) (1.5 * 12) * 2; // int to round, params: (feet[common measurement]*inch conversion)*2
-                                                 // for encoder ticks
+    // for encoder ticks
     public int encBall1 = (int) (1.6 * 12) * 2;
     public double localArmPos;
     public double localhingePos;
