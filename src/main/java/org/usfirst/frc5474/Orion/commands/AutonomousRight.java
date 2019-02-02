@@ -69,11 +69,11 @@ public class AutonomousRight extends Command {
         case AS_SONIC: {
             if (distanceAvg < SONIC_Distance) { // if not at the target location
                 SmartDashboard.putString("", "this is to see if this code works");
-                Robot.driveSub.driveStraight(((.5/SONIC_Distance)*distanceAvg)+.1); // drive straight at some power l
-                SmartDashboard.putString("", "we forgot sully doesnt have encoders");
+                Robot.driveSub.driveStraight(((.3/SONIC_Distance)*distanceAvg)+.3); // drive straight at some power l
+                SmartDashboard.putNumber("Motor power", ((.3/SONIC_Distance)*distanceAvg)+.3);
             } else {
                 Robot.driveSub.resetEncoders();
-                autonState++;
+                autonState +=2;
             }
             
             break;
@@ -88,7 +88,7 @@ public class AutonomousRight extends Command {
             break;
         }
         case (AS_rightTurn): {
-            
+            Robot.driveSub.stop();
         }
     }
     }
