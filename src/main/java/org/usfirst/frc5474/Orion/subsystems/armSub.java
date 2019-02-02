@@ -204,7 +204,7 @@ public class armSub extends Subsystem {
 
     public int getYDirection(){
         int armDirection = 0;
-        double yhand =Robot.oi.proJoystick.getY();
+        double yhand =Robot.oi.proJoystick.getRawAxis(1);
         if (yhand > 0){
             armDirection = 1;
         }
@@ -216,12 +216,18 @@ public class armSub extends Subsystem {
         }
         return armDirection;
     }
-    public void moveArmManual(int direction){
+
+    public double getSensitivity(){
+        double sensitivitySlider = Robot.oi.proJoystick.getRawAxis(3);
+        return sensitivitySlider;
+    }
+
+    public void moveArmManual(int direction, double sensitivity){
         if (direction == 1){
-            armMotor.set(.1);
+            armMotor.set(sensitivity/1.2); //adjust the dividing values so that the slider doesnt impact the sensitivity TOO much
         }
         else if (direction == 2){
-            armMotor.set(-.1);
+            armMotor.set(-sensitivity/1.2); // ^^, also sensitivity may need to be inverted
         }
         else if (direction == 0){
             armMotor.set(0);
