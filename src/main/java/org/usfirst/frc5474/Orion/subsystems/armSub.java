@@ -158,7 +158,7 @@ public class armSub extends Subsystem {
         double currentArmPos = armEncoder.getDistance();
         if (goingUp == true) {
             if (currentArmPos < armPos) {
-                armMotor.set(.1);
+                armMotor.set(.2);
 
             } else {
                 armMotor.set(0);
@@ -168,7 +168,7 @@ public class armSub extends Subsystem {
 
         else {
             if (currentArmPos > armPos) {
-                armMotor.set(-.1);
+                armMotor.set(-.2);
 
             } else {
                 armMotor.set(0);
