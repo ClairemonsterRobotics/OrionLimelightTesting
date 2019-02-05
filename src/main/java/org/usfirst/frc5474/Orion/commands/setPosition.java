@@ -27,7 +27,7 @@ public class setPosition extends Command {
     public double localArmPos;
     public double localhingePos;
     public int counter = 0;
-    private boolean armMovingFinished;
+    private boolean armMovingFinished = false;
 
     // NERATED CODE, SOURCE=ROBOTBUILDER ID=VARIABLE_DECLARATIONS
 
@@ -72,6 +72,7 @@ public class setPosition extends Command {
         counter++;
         SmartDashboard.putNumber("counting up", counter);
         if (armMovingFinished == true) {
+            Robot.armSub.verifyArmStop();
             isFinished();
         }
     }
@@ -85,6 +86,7 @@ public class setPosition extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        //armMovingFinished = false;
         cancel();
     }
 
