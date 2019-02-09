@@ -77,21 +77,21 @@ public class armSub extends Subsystem {
     // @param armPos = double of desired arm position
     public boolean moveArmToPos(double armPos) {
         double currentArmPos = armEncoder.getDistance();
-        SmartDashboard.putNumber("arm encoder", currentArmPos);
+        //SmartDashboard.putNumber("arm encoder", currentArmPos);
         if (currentArmPos < armPos) {
-            if (currentArmPos >= (armPos - 0.35)){
+            if (currentArmPos >= (armPos - 0.2)){
                 armMotor.set(0);
                 return true;
             } else {
-                armMotor.set(0.35);
+                armMotor.set(1);
                 return false;
             }
         } else if (currentArmPos > armPos) {
-            if (currentArmPos <= (armPos + 0.35)){
-                armMotor.set(0);
+            if (currentArmPos <= (armPos + 0.2)){
+                armMotor.set(1);
                 return true;
             } else {
-                armMotor.set(-0.35);
+                armMotor.set(-0.6);
                 return false;
             }
         } else {
@@ -100,14 +100,36 @@ public class armSub extends Subsystem {
         }
     }
 
+    public double checkArmEncoder() {
+        return armEncoder.getDistance();
+    }
+
+    public void resetArmEncoder() {
+        armEncoder.reset();
+    }
+
     /*public double getSensitivity() {
         double sensitivitySlider = Robot.oi.proJoystick.getRawAxis(3);
         return (sensitivitySlider + 1.0) / 2;
     }*/
 
     public void moveArmManual(double direction) {
-        armMotor.set(direction * 0.4);
+        double currentArmPos = armEncoder.getDistance();
+        if(direction>0){
+            if(currentArmPos<=1.2){
+                armMotor.set(direction);
+            }else{
+                armMotor.set(0);
+            }
+        }else{
+            if (currentArmPos>=0){
+                armMotor.set(direction);
+            }else{
+                armMotor.set(0);
+            }
+        }
     }
+
 
     @Override
     public void initDefaultCommand() {
@@ -122,7 +144,7 @@ public class armSub extends Subsystem {
 
     @Override
     public void periodic() {
-        SmartDashboard.putNumber("Arm Encoder Value (periodic)", armEncoder.getDistance());
+        //SmartDashboard.putNumber("Arm Encoder Value (periodic)", armEncoder.getDistance());
         //SmartDashboard.putBoolean("Moved to correct pos (periodic)", Robot.armSub.moveArmToPos(10));
         // Put code here to be run every loop
 

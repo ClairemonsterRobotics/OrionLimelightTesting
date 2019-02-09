@@ -117,6 +117,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        SmartDashboard.putNumber("teleopPeriodic encoder for arm", Robot.armSub.checkArmEncoder());
         Scheduler.getInstance().run();
     }
 }
