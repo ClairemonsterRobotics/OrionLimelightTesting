@@ -77,13 +77,13 @@ public class armSub extends Subsystem {
         double currentArmPos = armEncoder.getDistance(); //Gets current arm position encoder value
         while (needsToRun == true) { //Checks if arm motor needs to run
             SmartDashboard.putNumber("currentArmPos", armEncoder.getDistance()); //Pushes arm encoder value to Smart Dashboard
-            if (currentArmPos <= (armPos - 0.01)) { //Checks if current arm position is less than or equal to desired arm position, but adds .01?
+            if (currentArmPos <= (armPos - 0.01)) { //Checks if current arm position is less than or equal to desired arm position, but subtracts .01? I feel like this is the same function as the final if statement but reduntant.
                 //while (currentArmPos < armPos) {
                     armMotor.set(.25); //Sets motor power to positive 25%
                     currentArmPos = armEncoder.getDistance(); // updates current arm position
                 //}
             }
-            else if (currentArmPos >= (armPos + 0.01)) { // Checks if current arm position is greater than or equal to desired arm position
+            else if (currentArmPos >= (armPos + 0.01)) { // Checks if current arm position is greater than or equal to desired arm position, but subtracts .01? I feel like this is the same function as the final if statement but reduntant.
                 //while (currentArmPos > armPos) {
                     armMotor.set(-.25); //Sets motor power to negative 25%
                     currentArmPos = armEncoder.getDistance(); // Updates current arm position
@@ -94,7 +94,7 @@ public class armSub extends Subsystem {
             //Otherwise, it will only run if currentArmPos is <= (armPos - 0.01). 
             //This completely ignores every other case.
             //The purpose of this function is to create a buffer on both sides of current arm position to prevent shaking of motor.
-            else if(currentArmPos > (armPos - .25) && currentArmPos < (armPos + .25)){ //If currentArmPos is between desired arm position minus .25 and desired arm position plus .25, continue
+            else if(currentArmPos > (armPos - .25) && currentArmPos < (armPos + .25)){ //If currentArmPos is between desired arm position minus .25 and desired arm position plus .25: continue
                 needsToRun = false; // Sets needsToRun is false to break while loop
             }
         }
