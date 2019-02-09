@@ -76,7 +76,7 @@ public class armSub extends Subsystem {
         double currentArmPos = armEncoder.getDistance();
         while (needsToRun == true) {
             SmartDashboard.putNumber("currentArmPos", armEncoder.getDistance());
-            /*if (currentArmPos <= (armPos - 0.01)) {
+            if (currentArmPos <= (armPos - 0.01)) {
                 //while (currentArmPos < armPos) {
                     armMotor.set(.25);
                     currentArmPos = armEncoder.getDistance();
@@ -87,8 +87,8 @@ public class armSub extends Subsystem {
                     armMotor.set(-.25);
                     currentArmPos = armEncoder.getDistance();
                 //}
-            }*/
-            if(currentArmPos < (armPos + .25) && currentArmPos > (armPos - .25)){
+            }
+            else if(currentArmPos < (armPos + .25) && currentArmPos > (armPos - .25)){
                 needsToRun = false;
             }
         }
