@@ -46,16 +46,19 @@ public class armManual extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        manualActivated = !manualActivated;
+        manualActivated = true;
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        while (manualActivated = true){
+        if (manualActivated){
             Robot.armSub.moveArmManual(Robot.oi.proJoystick.getRawAxis(1));
         }
         SmartDashboard.putBoolean("Manual Activated", manualActivated);
+        if (Robot.oi.armManual.get()){
+            manualActivated = !manualActivated;
+        }
             //Robot.armSub.moveArmManual(0);
 
         //Robot.armSub.moveArmToPos(armPosition);

@@ -88,7 +88,8 @@ public class OI {
         setPosBottom = new JoystickButton(proJoystick, 3);
         setPosBottom.whenPressed(new setPosition(4));
         armManual = new JoystickButton(proJoystick, 4);
-        armManual.whenPressed(new armManual());
+        armManual arm = new armManual();
+        armManual.whenPressed(arm);
         
         xBOXController = new Joystick(0);
         
