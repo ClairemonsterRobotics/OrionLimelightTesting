@@ -62,6 +62,11 @@ public class Limelight extends Command {
       double x = tx.getDouble(0.0);
       double y = ty.getDouble(0.0);
       double area = ta.getDouble(0.0);
+      double k = 4.45;
+      double distance = k/Math.sqrt(area);
+
+      SmartDashboard.putNumber("k val", k);
+      SmartDashboard.putNumber("distance val", distance);
       SmartDashboard.putNumber("more counting", counter);
 
     //posting to smartdashboard periodically
