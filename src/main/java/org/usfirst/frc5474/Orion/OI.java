@@ -13,20 +13,14 @@ package org.usfirst.frc5474.Orion;
 
 import org.usfirst.frc5474.Orion.commands.arcadeDrive;
 import org.usfirst.frc5474.Orion.commands.climbSequence;
-import org.usfirst.frc5474.Orion.commands.closeClaw;
 import org.usfirst.frc5474.Orion.commands.dropBar;
 import org.usfirst.frc5474.Orion.commands.manualArm;
-import org.usfirst.frc5474.Orion.commands.openClaw;
-import org.usfirst.frc5474.Orion.commands.pushBall;
 import org.usfirst.frc5474.Orion.commands.runWinch;
 import org.usfirst.frc5474.Orion.commands.setPosition;
 import org.usfirst.frc5474.Orion.commands.tractionDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.SendableBase;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
@@ -123,9 +117,9 @@ public class OI {
         SmartDashboard.putData("climbSequence", new climbSequence());
         SmartDashboard.putData("arcadeDrive", new arcadeDrive());
         SmartDashboard.putData("tractionDrive", new tractionDrive());
-        SmartDashboard.putData("openClaw", new openClaw());
-        SmartDashboard.putData("closeClaw", new closeClaw());
-        SmartDashboard.putData("pushBall", new pushBall());
+        //SmartDashboard.putData("openClaw", new openClaw());
+        //SmartDashboard.putData("closeClaw", new closeClaw());
+        //SmartDashboard.putData("pushBall", new pushBall());
         SmartDashboard.putData("runWinch", new runWinch());
         SmartDashboard.putData("dropBar", new dropBar());
 

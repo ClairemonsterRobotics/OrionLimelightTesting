@@ -38,10 +38,10 @@ public class armSub extends Subsystem {
     private Encoder armEncoder;
     private boolean goingUp;
     public boolean moveArmComplete = false;
-    public static int hingeStartPos;
-    public static int upright = 17500 + hingeStartPos;
-    public static int dropangle = 8500 + hingeStartPos;
-    public static int flat = 700 + hingeStartPos;
+    public static int hingeStartPos = 0;
+    public static int upright = 40 + hingeStartPos;
+    public static int dropangle = 10 + hingeStartPos;
+    public static int flat = 0 + hingeStartPos;
     //public static int downangle = -100 + hingeStartPos;
     public static TalonSRX hingeTalon;
     public int hingeCurrentPos = 0;
@@ -57,7 +57,7 @@ public class armSub extends Subsystem {
 
         //armMotor.setSpeed(1);
 
-        armEncoder = new Encoder(0, 1, false);
+        armEncoder = new Encoder(0, 1, true);
         addChild("armEncoder", armEncoder);
         armEncoder.setDistancePerPulse(3 * Math.PI / 360); // ~3 inch gear
         armEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
@@ -100,7 +100,7 @@ public class armSub extends Subsystem {
 
         hingeTalon.config_kF(kPIDLoopIdx, 0.0, kTimeoutMs);
 
-        hingeTalon.config_kP(kPIDLoopIdx, 0.4, kTimeoutMs); // slows sooner to the stopping point
+        hingeTalon.config_kP(kPIDLoopIdx, 1, kTimeoutMs); // slows sooner to the stopping point
 
         hingeTalon.config_kI(kPIDLoopIdx, 0.0, kTimeoutMs);
 
@@ -186,11 +186,11 @@ public class armSub extends Subsystem {
     public void goToPos(int goToPos, String targetPos) {
         if (hingeCurrentPos > goToPos) {
             SmartDashboard.putString("Target Position", targetPos);
-            hingeTalon.set(ControlMode.Position, -goToPos);
+            hingeTalon.set(ControlMode.Position, goToPos);
             SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
         } else {
             SmartDashboard.putString("Target Position", targetPos);
-            hingeTalon.set(ControlMode.Position, goToPos);
+            hingeTalon.set(ControlMode.Position, -goToPos);
             SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
         }
     }
