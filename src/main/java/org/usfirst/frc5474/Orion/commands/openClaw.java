@@ -43,17 +43,18 @@ public class openClaw extends Command {
     @Override
     protected void initialize() {
         timer = new Timer();
+        timer.start();
         Robot.pClawSub.pistonRetract();
         Robot.pClawSub.pushBall();
-        if (timer.get() >= 2) {
-            Robot.pClawSub.returnPusher();
-        }
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-
+        if (timer.get() >= 2) {
+            Robot.pClawSub.returnPusher();
+            end();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
