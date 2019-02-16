@@ -59,12 +59,14 @@ public class Limelight extends Command {
       SmartDashboard.putNumber("counting", counter);
 
     //reading values periodically
-      double x = tx.getDouble(0.0);
-      double y = ty.getDouble(0.0);
+      double x = tx.getDouble(0.0); //provides x angular offset
+      double y = ty.getDouble(0.0); //provides y angular offset (probably wont need)
       double area = ta.getDouble(0.0);
-      double k = 4.45;
-      double distance = k/Math.sqrt(area);
+      double k = 52.0; //calibrated for inches
+      double distance = k/(Math.sqrt(area));
+      double realXdist = distance*(Math.sin(Math.toRadians(x)));
 
+      SmartDashboard.putNumber("real x dist", realXdist);
       SmartDashboard.putNumber("k val", k);
       SmartDashboard.putNumber("distance val", distance);
       SmartDashboard.putNumber("more counting", counter);
