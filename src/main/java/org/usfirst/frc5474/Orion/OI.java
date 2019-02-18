@@ -13,9 +13,10 @@ package org.usfirst.frc5474.Orion;
 
 import org.usfirst.frc5474.Orion.commands.ResetArmEncoder;
 import org.usfirst.frc5474.Orion.commands.arcadeDrive;
+import org.usfirst.frc5474.Orion.commands.armManual;
 import org.usfirst.frc5474.Orion.commands.climbSequence;
 import org.usfirst.frc5474.Orion.commands.dropBar;
-import org.usfirst.frc5474.Orion.commands.manualArm;
+//import org.usfirst.frc5474.Orion.commands.manualArm;
 import org.usfirst.frc5474.Orion.commands.runWinch;
 import org.usfirst.frc5474.Orion.commands.setPosition;
 import org.usfirst.frc5474.Orion.commands.tractionDrive;
@@ -71,9 +72,10 @@ public class OI {
     public JoystickButton setPosHatch3;
     public JoystickButton setPosBall3;
 
+    public JoystickButton armManual;
     public JoystickButton resetEncoderButton;
     public JoystickButton setPreGamePos;
-    public JoystickButton manualArmToggle;
+    //public JoystickButton manualArmToggle;
 
     public Joystick proJoystick;
     public final int uprightVal = 3;
@@ -105,8 +107,13 @@ public class OI {
         setPosBottom = new JoystickButton(proJoystick, 3);
         setPosBottom.whenPressed(new setPosition(0, flatVal));
         //temp. numbers for the setpos
-        manualArmToggle = new JoystickButton(proJoystick, 4);
-        manualArmToggle.whenPressed(new manualArm());
+        
+        /*manualArmToggle = new JoystickButton(proJoystick, 4);
+        manualArmToggle.whenPressed(new manualArm());*/
+
+        armManual = new JoystickButton(proJoystick, 4);
+        armManual arm = new armManual();
+        armManual.whenReleased(arm);
 
         xBOXController = new Joystick(0);
         resetEncoderButton = new JoystickButton(xBOXController, 5);

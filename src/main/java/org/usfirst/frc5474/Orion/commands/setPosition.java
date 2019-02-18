@@ -67,20 +67,18 @@ public class setPosition extends Command {
     @Override
     protected void initialize() {
         Robot.armSub.armDirection(localArmPos);
-        Robot.armSub.getHingeStartPos();
+        Robot.armSub.getHingeCurrentPos();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        armMovingFinished = Robot.armSub.moveArmToPosition(localArmPos);
+        //armMovingFinished = Robot.armSub.moveArmToPos(localArmPos);
         if (localhingePos == 1){
             Robot.armSub.bringLevel();
-        }
-        if (localhingePos == 2){
+        } else if (localhingePos == 2){
             Robot.armSub.bringtoDropAngle();
-        }
-        if (localhingePos == 3){
+        } else if (localhingePos == 3){
             Robot.armSub.bringUpright();
         }
 
