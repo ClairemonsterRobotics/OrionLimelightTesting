@@ -63,8 +63,8 @@ public class OI {
     public JoystickButton setPosBall2;
     public JoystickButton setPosHatch3;
     public JoystickButton setPosBall3;
-    public JoystickButton openClaw;
-    public JoystickButton closeClaw;
+    public JoystickButton toggleClaw;
+    public JoystickButton togglePusher;
     //public JoystickButton manualArm;
     public Joystick proJoystick;
 
@@ -91,10 +91,10 @@ public class OI {
         setPosBottom.whenPressed(new setPosition());
         //manualArm = new JoystickButton(proJoystick, 4);
         //manualArm.whenPressed(new activateManualArm());
-        openClaw = new JoystickButton(proJoystick, 1);
-        openClaw.whenPressed(new openClaw());
-        closeClaw = new JoystickButton(proJoystick, 2);
-        closeClaw.whenPressed(new closeClaw());
+        toggleClaw = new JoystickButton(proJoystick, 1);
+        toggleClaw.whenPressed(new Claw());
+        togglePusher = new JoystickButton(proJoystick, 2);
+        togglePusher.whenPressed(new Pusher());
         
         xBOXController = new Joystick(0);
         
@@ -110,8 +110,8 @@ public class OI {
         SmartDashboard.putData("climbSequence", new climbSequence());
         SmartDashboard.putData("arcadeDrive", new arcadeDrive());
         SmartDashboard.putData("tractionDrive", new tractionDrive());
-        SmartDashboard.putData("openClaw", new openClaw());
-        SmartDashboard.putData("closeClaw", new closeClaw());
+        //SmartDashboard.putData("openClaw", new openClaw());
+        //SmartDashboard.putData("closeClaw", new closeClaw());
         SmartDashboard.putData("runWinch", new runWinch());
         SmartDashboard.putData("dropBar", new dropBar());
         SmartDashboard.putData("setPosition", new setPosition());
