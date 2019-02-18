@@ -53,12 +53,14 @@ public class pClawSub extends Subsystem {
         //first parameter is node, CAN address of PCM
         clawSolenoid = new DoubleSolenoid(1, 0, 7);
         addChild("clawSolenoid",clawSolenoid);
-        clawSolenoid.set(DoubleSolenoid.Value.kReverse);
+        clawSolenoid.set(DoubleSolenoid.Value.kForward);
+        
         
         
         pushSolenoid = new DoubleSolenoid(1, 1, 6);
         addChild("pushSolenoid",pushSolenoid);
         pushSolenoid.set(DoubleSolenoid.Value.kReverse);
+       
 
         R1Solenoid = new DoubleSolenoid(1, 2, 5);
         addChild("R1Solenoid",R1Solenoid);
@@ -87,6 +89,8 @@ public class pClawSub extends Subsystem {
 
     @Override
     public void periodic() {
+        SmartDashboard.putBoolean("claw rev blacklist", clawSolenoid.isRevSolenoidBlackListed());
+        SmartDashboard.putBoolean("pusher rev blacklist", pushSolenoid.isRevSolenoidBlackListed());
         // Put code here to be run every loop
 
     }
@@ -98,7 +102,7 @@ public class pClawSub extends Subsystem {
 
     public void pistonRetract() { //claw is open
         SmartDashboard.putString("", "piston retract");
-        clawSolenoid.set(DoubleSolenoid.Value.kOff);
+        clawSolenoid.set(DoubleSolenoid.Value.kReverse);
         //clawSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
