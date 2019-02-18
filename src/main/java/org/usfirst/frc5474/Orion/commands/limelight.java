@@ -79,8 +79,6 @@ public class Limelight extends Command {
 
       counter++;
 
-      float tapeDistance = 0.1f;
-
     }
 
     // Make this return true when this Command no longer needs to run execute()
