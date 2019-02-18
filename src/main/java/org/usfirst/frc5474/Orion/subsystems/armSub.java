@@ -40,8 +40,8 @@ public class armSub extends Subsystem {
     public boolean moveArmComplete = false;
     public static int hingeStartPos;
     public int hingeCurrentPos = 0;
-    public int upright = 400 + hingeStartPos;
-    public int dropangle = 100 + hingeStartPos;
+    public int upright = 2000 + hingeStartPos;
+    public int dropangle = 700 + hingeStartPos;
     public int flat = 0 + hingeStartPos;
     // public static int downangle = -100 + hingeStartPos;
     public static TalonSRX hingeTalon;
@@ -64,14 +64,14 @@ public class armSub extends Subsystem {
         armEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
         // armEncoder.setIndexSource(2, IndexingType.kResetOnRisingEdge);
 
-        hingeEncoder = new Encoder(2, 3, false);
-        addChild("hingeEncoder", hingeEncoder);
-        hingeEncoder.setDistancePerPulse(3 * Math.PI / 360);
-        hingeEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+        //hingeEncoder = new Encoder(2, 3, false);
+        //addChild("hingeEncoder", hingeEncoder);
+        //hingeEncoder.setDistancePerPulse(3 * Math.PI / 360);
+        //hingeEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
         // hingeEncoder.setIndexSource(5, IndexingType.kResetOnRisingEdge);
 
         hingeTalon = new TalonSRX(0); // encoder / controller
-        hingeStartPos = hingeTalon.getSelectedSensorPosition();
+        hingeStartPos = hingeTalon.getSelectedSensorPosition(0);
         SmartDashboard.putNumber("start pos creation", hingeStartPos);
         // final int kSlotIdx = 0;
         final int kPIDLoopIdx = 0;
@@ -82,6 +82,7 @@ public class armSub extends Subsystem {
 
         hingeTalon.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, kPIDLoopIdx, kTimeoutMs);
 
+        hingeTalon.setInverted(false);
         hingeTalon.setSensorPhase(false);
 
         /* set the peak and nominal outputs, 12V means full */
@@ -210,7 +211,7 @@ public class armSub extends Subsystem {
     // here. Call these from Commands.
 
     public void getHingeCurrentPos() {
-        hingeCurrentPos = hingeTalon.getSelectedSensorPosition();
+        hingeCurrentPos = hingeTalon.getSelectedSensorPosition(0);
         SmartDashboard.putNumber("hinge current pos", hingeCurrentPos);
     }
 
