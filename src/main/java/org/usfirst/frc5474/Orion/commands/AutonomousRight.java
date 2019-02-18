@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc5474.Orion.Robot;
-import org.usfirst.frc5474.Orion.subsystems.driveSub;
+//import org.usfirst.frc5474.Orion.subsystems.driveSub;
 
 /**
  *
@@ -69,11 +69,11 @@ public class AutonomousRight extends Command {
         case AS_SONIC: {
             if (distanceAvg < SONIC_Distance) { // if not at the target location
                 SmartDashboard.putString("", "this is to see if this code works");
-                Robot.driveSub.driveStraight(((.3/SONIC_Distance)*distanceAvg)+.3); // drive straight at some power l
-                SmartDashboard.putNumber("Motor power", ((.3/SONIC_Distance)*distanceAvg)+.3);
+                Robot.driveSub.driveStraight(((.5/SONIC_Distance)*distanceAvg)+.1); // drive straight at some power l
+                SmartDashboard.putString("", "we forgot sully doesnt have encoders");
             } else {
                 Robot.driveSub.resetEncoders();
-                autonState +=2;
+                autonState++;
             }
             
             break;

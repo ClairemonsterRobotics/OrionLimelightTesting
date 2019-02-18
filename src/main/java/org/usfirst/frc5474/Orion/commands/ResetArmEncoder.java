@@ -11,30 +11,17 @@ import org.usfirst.frc5474.Orion.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Pusher extends Command {
-
-  public boolean pusherDeActivated;
-
-  public Pusher() {
-
-    //requires(Robot.pClawSub);
+public class ResetArmEncoder extends Command {
+  public ResetArmEncoder() {
+    requires(Robot.armSub);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.pClawSub);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    pusherDeActivated = !pusherDeActivated;
-    if (pusherDeActivated == true){
-      Robot.pClawSub.pushBall();
-      end();
-    }
-    else {
-      Robot.pClawSub.returnPusher();
-      end();
-    }
+    Robot.armSub.resetArmEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -51,7 +38,6 @@ public class Pusher extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    cancel();
   }
 
   // Called when another command which requires one or more of the same
