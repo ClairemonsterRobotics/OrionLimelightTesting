@@ -137,8 +137,8 @@ public class driveSub extends Subsystem {
            
 
         }
-        SmartDashboard.putNumber("x", stick.getX()); 
-        SmartDashboard.putNumber("y", stick.getY());
+        //SmartDashboard.putNumber("x", stick.getX()); 
+        //SmartDashboard.putNumber("y", stick.getY());
         SmartDashboard.putNumber("right distance", - rightPairEncoder.getDistance());
         SmartDashboard.putNumber("left distance",  leftPairEncoder.getDistance());
 
