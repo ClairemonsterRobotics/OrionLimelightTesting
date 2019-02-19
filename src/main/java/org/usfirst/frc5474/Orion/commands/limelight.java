@@ -56,7 +56,7 @@ public class limelight extends Command {
     NetworkTableEntry tx = table.getEntry("tx");
       NetworkTableEntry ty = table.getEntry("ty");
       NetworkTableEntry ta = table.getEntry("ta");
-      SmartDashboard.putNumber("counting", counter);
+      //SmartDashboard.putNumber("counting", counter);
 
     //reading values periodically
       double x = tx.getDouble(0.0); //provides x angular offset
@@ -67,15 +67,15 @@ public class limelight extends Command {
       double realXdist = distance*(Math.sin(Math.toRadians(x)));
 
       SmartDashboard.putNumber("real x dist", realXdist);
-      SmartDashboard.putNumber("k val", k);
+      //SmartDashboard.putNumber("k val", k);
       SmartDashboard.putNumber("distance val", distance);
-      SmartDashboard.putNumber("more counting", counter);
+      //SmartDashboard.putNumber("more counting", counter);
 
     //posting to smartdashboard periodically
       SmartDashboard.putNumber("LimelightX", x);
       SmartDashboard.putNumber("LimelightY", y);
-      SmartDashboard.putNumber("LimelightArea", area);
-      SmartDashboard.putNumber("even more counting", counter);
+      //SmartDashboard.putNumber("LimelightArea", area);
+      //SmartDashboard.putNumber("even more counting", counter);
 
       counter++;
 

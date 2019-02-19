@@ -89,19 +89,19 @@ public class pClawSub extends Subsystem {
 
     @Override
     public void periodic() {
-        SmartDashboard.putBoolean("claw rev blacklist", clawSolenoid.isRevSolenoidBlackListed());
-        SmartDashboard.putBoolean("pusher rev blacklist", pushSolenoid.isRevSolenoidBlackListed());
+        //SmartDashboard.putBoolean("claw rev blacklist", clawSolenoid.isRevSolenoidBlackListed());
+        //SmartDashboard.putBoolean("pusher rev blacklist", pushSolenoid.isRevSolenoidBlackListed());
         // Put code here to be run every loop
 
     }
 
     public void pistonExtend() { //claw is closed
-        SmartDashboard.putString("", "piston extend");
+        //SmartDashboard.putString("", "piston extend");
         clawSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     public void pistonRetract() { //claw is open
-        SmartDashboard.putString("", "piston retract");
+        //SmartDashboard.putString("", "piston retract");
         clawSolenoid.set(DoubleSolenoid.Value.kReverse);
         //clawSolenoid.set(DoubleSolenoid.Value.kReverse);
     }

@@ -68,9 +68,9 @@ public class AutonomousRight extends Command {
         switch (autonState) {
         case AS_SONIC: {
             if (distanceAvg < SONIC_Distance) { // if not at the target location
-                SmartDashboard.putString("", "this is to see if this code works");
+                //SmartDashboard.putString("", "this is to see if this code works");
                 Robot.driveSub.driveStraight(((.5/SONIC_Distance)*distanceAvg)+.1); // drive straight at some power l
-                SmartDashboard.putString("", "we forgot sully doesnt have encoders");
+                //SmartDashboard.putString("", "we forgot sully doesnt have encoders");
             } else {
                 Robot.driveSub.resetEncoders();
                 autonState++;

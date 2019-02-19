@@ -84,7 +84,7 @@ public class setPosition extends Command {
         }
 
         counter++;
-        SmartDashboard.putNumber("counting up", counter);
+        //SmartDashboard.putNumber("counting up", counter);
         if (armMovingFinished == true) {
             Robot.armSub.verifyArmStop();
             isFinished();

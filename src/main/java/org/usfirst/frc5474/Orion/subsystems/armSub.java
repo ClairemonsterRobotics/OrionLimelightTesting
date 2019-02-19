@@ -226,7 +226,7 @@ public class armSub extends Subsystem {
 
     public void getHingeCurrentPos() {
         hingeCurrentPos = hingeTalon.getSelectedSensorPosition(0);
-        SmartDashboard.putNumber("hinge current pos", hingeCurrentPos);
+        //SmartDashboard.putNumber("hinge current pos", hingeCurrentPos);
     }
 
     public void armDirection(double armPos) {
@@ -243,15 +243,15 @@ public class armSub extends Subsystem {
 
     public void goToPos(int goToPos, String targetPos) {
         if (hingeStartPos > goToPos) {
-            SmartDashboard.putNumber("hinge start pos in funct", hingeStartPos);
-            SmartDashboard.putString("Target Position", targetPos);
+            //SmartDashboard.putNumber("hinge start pos in funct", hingeStartPos);
+            //SmartDashboard.putString("Target Position", targetPos);
             hingeTalon.set(ControlMode.Position, goToPos);
-            SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
+            //SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
         } else {
-            SmartDashboard.putNumber("hinge start pos in funct", hingeStartPos);
-            SmartDashboard.putString("Target Position", targetPos);
+            //SmartDashboard.putNumber("hinge start pos in funct", hingeStartPos);
+            //SmartDashboard.putString("Target Position", targetPos);
             hingeTalon.set(ControlMode.Position, -goToPos);
-            SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
+            //SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
         }
     }
 
