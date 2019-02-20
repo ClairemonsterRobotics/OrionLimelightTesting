@@ -119,6 +119,7 @@ public class OI {
         setPreGamePos.whenPressed(new setPosition(0.0, upright));
         setPosBall3 = new JoystickButton(proJoystick, 8);
         
+        //need to calibrate both parameters for setPosition
         setPosBall3.whenPressed(new setPosition(1.2, posBall3)); //probably is not correct level for ball 3, but maybe
         setPosHatch3 = new JoystickButton(proJoystick, 7);
         setPosHatch3.whenPressed(new setPosition(1.0, posHatch3));
