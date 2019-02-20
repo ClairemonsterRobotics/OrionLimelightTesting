@@ -262,9 +262,9 @@ public class armSub extends Subsystem {
 
     public void manualHingeControl(boolean goUp){
         if (goUp == true){
-            hingeTalon.set(ControlMode.PercentOutput, 0.2);
+            hingeTalon.set(ControlMode.PercentOutput, 0.6); //value may be too large
         } else if (goUp == false){
-            hingeTalon.set(ControlMode.PercentOutput, -0.2);
+            hingeTalon.set(ControlMode.PercentOutput, -0.6); //^^
         }
     }
 
