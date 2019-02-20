@@ -176,7 +176,7 @@ public class armSub extends Subsystem {
         }
     }
 
-    public boolean moveHinge( double angle){
+    public boolean moveHinge(double angle){
         double hingePos = hingeEncoder.getDistance();
         double angleValue = 45;
         if(angle == 45.0){
@@ -223,6 +223,10 @@ public class armSub extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    
+    public void hingeReset(){
+        hingeTalon.setSelectedSensorPosition(0);
+    }
 
     public void getHingeCurrentPos() {
         hingeCurrentPos = hingeTalon.getSelectedSensorPosition(0);
@@ -241,21 +245,30 @@ public class armSub extends Subsystem {
 
     
 
-    public void goToPos(int goToPos, String targetPos) {
+    public void goToHingePos(int goToPos, String targetPos) {
         if (hingeStartPos > goToPos) {
-            //SmartDashboard.putNumber("hinge start pos in funct", hingeStartPos);
-            //SmartDashboard.putString("Target Position", targetPos);
-            hingeTalon.set(ControlMode.Position, goToPos);
-            //SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
-        } else {
             //SmartDashboard.putNumber("hinge start pos in funct", hingeStartPos);
             //SmartDashboard.putString("Target Position", targetPos);
             hingeTalon.set(ControlMode.Position, -goToPos);
             //SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
+        } else {
+            //SmartDashboard.putNumber("hinge start pos in funct", hingeStartPos);
+            //SmartDashboard.putString("Target Position", targetPos);
+            hingeTalon.set(ControlMode.Position, goToPos);
+            //SmartDashboard.putNumber("Current Position", hingeTalon.getSelectedSensorPosition(0));
+        }
+        //hingeTalon.set(ControlMode.Position, goToPos);
+    }
+
+    public void manualHingeControl(boolean goUp){
+        if (goUp == true){
+            hingeTalon.set(ControlMode.PercentOutput, 0.2);
+        } else if (goUp == false){
+            hingeTalon.set(ControlMode.PercentOutput, -0.2);
         }
     }
 
-    public void bringUpright() {
+    /*public void bringUpright() {
         goToPos(upright, "Tucked In - " + upright);
     }
 
@@ -265,7 +278,7 @@ public class armSub extends Subsystem {
 
     public void bringLevel() {
         goToPos(flat, "Level 3 - " + flat);
-    }
+    }*/
 
     
 
