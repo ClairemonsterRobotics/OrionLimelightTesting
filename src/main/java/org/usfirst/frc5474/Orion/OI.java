@@ -11,26 +11,10 @@
 
 package org.usfirst.frc5474.Orion;
 
-import org.usfirst.frc5474.Orion.commands.ResetArmEncoder;
-import org.usfirst.frc5474.Orion.commands.arcadeDrive;
-import org.usfirst.frc5474.Orion.commands.armManual;
-import org.usfirst.frc5474.Orion.commands.climbSequence;
-import org.usfirst.frc5474.Orion.commands.dropBar;
-import org.usfirst.frc5474.Orion.commands.limelight;
-//import org.usfirst.frc5474.Orion.commands.manualArm;
-import org.usfirst.frc5474.Orion.commands.runWinch;
-import org.usfirst.frc5474.Orion.commands.setPosition;
-import org.usfirst.frc5474.Orion.commands.tractionDrive;
-import org.usfirst.frc5474.Orion.commands.Claw;
-import org.usfirst.frc5474.Orion.commands.Pusher;
-import org.usfirst.frc5474.Orion.commands.ResetHingeEncoder;
-import org.usfirst.frc5474.Orion.commands.manualHinge;
+import org.usfirst.frc5474.Orion.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.Trigger;
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 

@@ -10,7 +10,7 @@ package org.usfirst.frc5474.Orion.commands;
 import org.usfirst.frc5474.Orion.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class manualHinge extends Command {
   public manualHinge() {

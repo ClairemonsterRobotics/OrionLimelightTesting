@@ -36,7 +36,7 @@ public class armSub extends Subsystem {
     private Spark hingeMotor;
     private Encoder armEncoder;
     private Encoder hingeEncoder;
-    private boolean goingUp;
+    public boolean goingUp;
     public boolean moveArmComplete = false;
     public static int hingeStartPos;
     public int hingeCurrentPos = 0;
