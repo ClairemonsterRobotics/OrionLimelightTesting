@@ -163,14 +163,14 @@ public class OI {
         armManual.whenReleased(arm);
 
         xBOXController = new Joystick(0);
-        resetEncoderButton = new JoystickButton(xBOXController, 5);
+        resetEncoderButton = new JoystickButton(xBOXController, 7);
         resetEncoderButton.whenPressed(new ResetArmEncoder());
-
+        
         climbButton = new JoystickButton(xBOXController, 3);
         climbButton.whileHeld(new climbSequence());
         barButton = new JoystickButton(xBOXController, 2);
         barButton.whenPressed(new dropBar());
-        winchOnlyButton = new JoystickButton(xBOXController, 24);
+        winchOnlyButton = new JoystickButton(xBOXController, 1);
         winchOnlyButton.whileHeld(new runWinch());
 
 
