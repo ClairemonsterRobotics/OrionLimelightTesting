@@ -61,6 +61,7 @@ public class armSub extends Subsystem {
         armEncoder = new Encoder(0, 1, true);
         addChild("armEncoder", armEncoder);
         armEncoder.setDistancePerPulse(3 * Math.PI / 360);
+        //armEncoder.setDistancePerPulse(20 / 360); //20 pulses per revolution divided by 360 gets us degrees?
         armEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
 
         hingeTalon = new TalonSRX(0); // encoder / controller
