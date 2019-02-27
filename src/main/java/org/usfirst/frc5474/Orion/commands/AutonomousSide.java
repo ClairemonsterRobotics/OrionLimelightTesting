@@ -55,7 +55,7 @@ public class AutonomousSide extends Command {
     private boolean AS_Turn(double distR, double distL){
         double dist = -0.5*(distR-distL);
         double degreesTurned=degToRad*dist/16.0; // (arclength / robot radius)
-       // Robot.driveSub.swivelRight(turnSpeed);
+        Robot.driveSub.swivelRight(turnSpeed);
         return (degreesTurned >= turnDegrees);
     }
     private boolean AS_Approach(double distR, double distL){
