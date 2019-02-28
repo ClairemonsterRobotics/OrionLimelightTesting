@@ -80,14 +80,15 @@ public class OI {
     //public final int dropAngleVal = 2;
     //public final int flatVal = 1;
 
-    public final int posBottom = 0;
-    public final int posHatch1 = 150; //maybe not cali
-    public final int posBall1 = 200; //maybe not cali
-    public final int posHatch2 = 200;
-    public final int posBall2 = 400; //not cali
-    public final int posHatch3 = 650; //not cali
-    public final int posBall3 = 600; // not cali
-    public final int upright = 300; //not cali
+    //now in pulse based values
+    public final int posBottom = 0; //im thinking this will still be 0, however charlie believes the angle is ~39, meaning 3970 pulses
+    public final int posHatch1 = 5750; //150
+    public final int posBall1 = 6770; //200
+    public final int posHatch2 = 8890; //200
+    public final int posBall2 = 9800; //400
+    public final int posHatch3 = 12000; //?
+    public final int posBall3 = 13110; //? 
+    public final int upright = 3540; //300
 
     /* Values Charlie posted in degrees just incase the setDistancePerPulse thing is actually what we need in degrees
     public final int posBottom = 39.77
