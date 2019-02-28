@@ -81,7 +81,8 @@ public class OI {
     //public final int flatVal = 1;
 
     //now in pulse based values
-    public final int posBottom = 0; //im thinking this will still be 0, however charlie believes the angle is ~39, meaning 3970 pulses
+    public final int posBottom = 3970; //this is about the pulses needed to bring the arm up to what will be level to the mid range of the ball height
+    //im thinking this will still be 0, however charlie believes the angle is ~39, meaning 3970 pulses
     public final int posHatch1 = 5750; //150
     public final int posBall1 = 6770; //200
     public final int posHatch2 = 8890; //200
