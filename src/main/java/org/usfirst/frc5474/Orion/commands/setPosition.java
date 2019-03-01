@@ -71,7 +71,7 @@ public class setPosition extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        //armMovingFinished = Robot.armSub.moveArmToPos(localArmPos);
+        armMovingFinished = Robot.armSub.moveArmToPos(localArmPos);
         /*if (localhingePos == 1){
             Robot.armSub.bringLevel();
         } else if (localhingePos == 2){

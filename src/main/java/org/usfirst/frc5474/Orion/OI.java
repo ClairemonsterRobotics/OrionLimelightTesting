@@ -81,15 +81,15 @@ public class OI {
     //public final int flatVal = 1;
 
     //now in pulse based values
-    public final int posBottom = 3970; //this is about the pulses needed to bring the arm up to what will be level to the mid range of the ball height
+    public final int posBottom = 0; //this is about the pulses needed to bring the arm up to what will be level to the mid range of the ball height
     //im thinking this will still be 0, however charlie believes the angle is ~39, meaning 3970 pulses
-    public final int posHatch1 = 5750; //150
-    public final int posBall1 = 6770; //200
-    public final int posHatch2 = 8890; //200
-    public final int posBall2 = 9800; //400
-    public final int posHatch3 = 12000; //?
-    public final int posBall3 = 13110; //? 
-    public final int upright = 3540; //300
+    public final int posHatch1 = 200; //150
+    public final int posBall1 = 200; //200
+    public final int posHatch2 = 200; //200
+    public final int posBall2 = 400; //400
+    public final int posHatch3 = 400; //?
+    public final int posBall3 = 400; //? 
+    public final int upright = 300; //300
 
     /* Values Charlie posted in degrees just incase the setDistancePerPulse thing is actually what we need in degrees
     public final int posBottom = 39.77
@@ -117,20 +117,20 @@ public class OI {
         setPosBall3 = new JoystickButton(proJoystick, 8);
         
         //need to calibrate both parameters for setPosition
-        setPosBall3.whenPressed(new setPosition(1.2, posBall3)); //probably is not correct level for ball 3, but maybe
+        setPosBall3.whenPressed(new setPosition(727.6, posBall3)); //probably is not correct level for ball 3, but maybe
         setPosHatch3 = new JoystickButton(proJoystick, 7);
-        setPosHatch3.whenPressed(new setPosition(1.0, posHatch3));
+        setPosHatch3.whenPressed(new setPosition(666, posHatch3));
         setPosBall2 = new JoystickButton(proJoystick, 10);
-        setPosBall2.whenPressed(new setPosition(0.8, posBall2));
+        setPosBall2.whenPressed(new setPosition(543.79, posBall2));
         setPosHatch2 = new JoystickButton(proJoystick, 9);
-        setPosHatch2.whenPressed(new setPosition(0.6, posHatch2)); //only changing the hinge value for hatch 2 pos
+        setPosHatch2.whenPressed(new setPosition(493.4, posHatch2)); //only changing the hinge value for hatch 2 pos
         setPosBall1 = new JoystickButton(proJoystick, 12);
-        setPosBall1.whenPressed(new setPosition(0.4, posBall1));
+        setPosBall1.whenPressed(new setPosition(375.7, posBall1));
         setPosHatch1 = new JoystickButton(proJoystick, 11);
-        setPosHatch1.whenPressed(new setPosition(0.2, posHatch1));
+        setPosHatch1.whenPressed(new setPosition(319.1, posHatch1));
 
         setPosBottom = new JoystickButton(proJoystick, 3);
-        setPosBottom.whenPressed(new setPosition(0, posBottom));
+        setPosBottom.whenPressed(new setPosition(220.78, posBottom));
         //setPosBottom.whenPressed(new setPosition());
         //manualArm = new JoystickButton(proJoystick, 4);
         //manualArm.whenPressed(new activateManualArm());
