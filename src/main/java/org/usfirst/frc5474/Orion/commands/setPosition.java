@@ -66,6 +66,7 @@ public class setPosition extends Command {
     protected void initialize() {
         Robot.armSub.armDirection(localArmPos);
         Robot.armSub.getHingeCurrentPos();
+        //Robot.armSub.goToHingePos(localHingePos, ""); //might be not great
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -79,7 +80,6 @@ public class setPosition extends Command {
         } else if (localhingePos == 3){
             Robot.armSub.bringUpright();
         }*/
-        Robot.armSub.goToHingePos(localHingePos, "");
 
         counter++;
         //SmartDashboard.putNumber("counting up", counter);

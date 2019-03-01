@@ -26,7 +26,7 @@ public class AutonomousSide extends Command {
     }
     final double distancePerPulse = 6*Math.PI/360;
     AutonState curState = AutonState.BEGIN;
-    private final double dismountDistance = 24;
+    private final double dismountDistance = 24; //need to measure so that we aren't going off platform
     private final double dismountSpeed = 0.3;
     private final double advanceDistance = 56;
     private final double advanceSpeed = 0.1;
@@ -85,7 +85,8 @@ public class AutonomousSide extends Command {
             case DISMOUNT:
                 if(AS_Dismount(distanceR,distanceL)){
                     Robot.driveSub.resetEncoders();
-                    curState = AutonState.ADVANCE;
+                    //curState = AutonState.ADVANCE;
+                    curState = AutonState.END;
                 }
                 break;
             case ADVANCE:
@@ -109,6 +110,7 @@ public class AutonomousSide extends Command {
             case END:
                 Robot.driveSub.resetEncoders();
                 Robot.driveSub.stop();
+                new arcadeDrive();
                 break;
             default:
                 Robot.driveSub.resetEncoders();

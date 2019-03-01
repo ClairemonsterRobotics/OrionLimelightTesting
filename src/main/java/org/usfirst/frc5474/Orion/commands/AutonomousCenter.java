@@ -72,6 +72,7 @@ public class AutonomousCenter extends Command {
                 Robot.driveSub.driveStraight(.3); // drive straight at some power
             } else {
                 Robot.driveSub.stop();
+                new arcadeDrive();
             }
         }
 
