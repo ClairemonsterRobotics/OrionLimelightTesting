@@ -120,7 +120,7 @@ public class driveSub extends Subsystem {
             // compensationMult = deltaDistance + 1;
             // diffDrive.arcadeDrive(power, 0, true); //not sure what this line does
             leftMotorPair.set(-stick.getY());
-            rightMotorPair.set(stick.getY() * compensationMult * .8);
+            rightMotorPair.set(stick.getY() * compensationMult); //multiplied times 0.8; removed
 
         }
         // SmartDashboard.putNumber("x", stick.getX());

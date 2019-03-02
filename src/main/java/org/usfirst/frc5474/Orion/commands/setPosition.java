@@ -13,6 +13,7 @@ package org.usfirst.frc5474.Orion.commands;
 import org.usfirst.frc5474.Orion.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Timer;
 
 
 /**
@@ -27,6 +28,7 @@ public class setPosition extends Command {
     public int localHingePos;
     public int counter = 0;
     private boolean armMovingFinished = false;
+    private Timer armTimer;
 
     // NERATED CODE, SOURCE=ROBOTBUILDER ID=VARIABLE_DECLARATIONS
 
@@ -64,6 +66,8 @@ public class setPosition extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        armTimer = new Timer();
+
         Robot.armSub.armDirection(localArmPos);
         Robot.armSub.getHingeCurrentPos();
         //Robot.armSub.goToHingePos(localHingePos, ""); //might be not great
@@ -85,7 +89,12 @@ public class setPosition extends Command {
         //SmartDashboard.putNumber("counting up", counter);
         if (armMovingFinished == true) {
             Robot.armSub.verifyArmStop();
-            isFinished();
+            armTimer.start();
+            Robot.armSub.moveArmManual(Robot.oi.proJoystick.getRawAxis(1));
+            if (armTimer.hasPeriodPassed(2)){
+                Robot.armSub.verifyArmStop();
+                isFinished();
+            }
         }
     }
     // Make this return true when this Command no longer needs to run execute()

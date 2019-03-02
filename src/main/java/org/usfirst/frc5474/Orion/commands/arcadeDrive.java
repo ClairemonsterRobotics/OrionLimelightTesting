@@ -50,6 +50,7 @@ public class arcadeDrive extends Command {
             Robot.driveSub.resetEncoders();
         }
         if (Robot.oi.xBOXController.getRawButton(9) == false){
+            new limelight();
             init = true;
         }
     }

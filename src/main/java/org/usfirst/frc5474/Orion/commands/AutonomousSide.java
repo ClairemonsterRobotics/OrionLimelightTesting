@@ -79,6 +79,7 @@ public class AutonomousSide extends Command {
 
         switch(curState){
             case BEGIN:
+                new limelight();
                 Robot.driveSub.resetEncoders();
                 curState = AutonState.DISMOUNT;
                 break;

@@ -77,8 +77,7 @@ public class climbSub extends Subsystem {
 
     public void runBarMotor() {
         barMotor.set(.5);
-        //delay here
-        barMotor.set(0);
+        //will need timer in command
     }
 
     public void spinWinch(double winchPower) {

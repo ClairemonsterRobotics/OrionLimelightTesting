@@ -10,7 +10,7 @@ package org.usfirst.frc5474.Orion.commands;
 import org.usfirst.frc5474.Orion.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class manualHinge extends Command {
   public manualHinge() {
@@ -27,14 +27,14 @@ public class manualHinge extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // SmartDashboard.putNumber("POV value??", Robot.oi.proJoystick.getRawAxis(4));
+    SmartDashboard.putNumber("POV value??", Robot.oi.proJoystick.getRawAxis(4));
     if (Robot.oi.proJoystick.getPOV() != -1) {
-      if ((Robot.oi.proJoystick.getPOV() < 80 || Robot.oi.proJoystick.getPOV() > 280)
-          && Robot.oi.proJoystick.getPOV() != 1) {
+      if ((Robot.oi.proJoystick.getPOV() < 80 || Robot.oi.proJoystick.getPOV() > 280)){
+          //&& Robot.oi.proJoystick.getPOV() != 1) {
         Robot.armSub.manualHingeControl(true);
         //SmartDashboard.putString("hinge state", "going up");
-      } else if (100 < Robot.oi.proJoystick.getPOV() && Robot.oi.proJoystick.getPOV() < 260
-          && Robot.oi.proJoystick.getPOV() != 1) {
+      } else if (100 < Robot.oi.proJoystick.getPOV() && Robot.oi.proJoystick.getPOV() < 260){
+          //&& Robot.oi.proJoystick.getPOV() != 1) {
         Robot.armSub.manualHingeControl(false);
         //SmartDashboard.putString("hinge state", "going down");
       }

@@ -112,7 +112,7 @@ public class OI {
         hingeManual = new JoystickButton(proJoystick, 5);
         hingeManual.toggleWhenPressed(new manualHinge());
         
-        setPreGamePos = new JoystickButton(proJoystick, 6);
+        setPreGamePos = new JoystickButton(proJoystick, 4);
         setPreGamePos.whenPressed(new setPosition(0.0, upright));
         setPosBall3 = new JoystickButton(proJoystick, 8);
         
@@ -123,11 +123,11 @@ public class OI {
         setPosBall2 = new JoystickButton(proJoystick, 10);
         setPosBall2.whenPressed(new setPosition(543.79, posBall2));
         setPosHatch2 = new JoystickButton(proJoystick, 9);
-        setPosHatch2.whenPressed(new setPosition(493.4, posHatch2)); //only changing the hinge value for hatch 2 pos
+        setPosHatch2.whenPressed(new setPosition(1200, posHatch2)); //only changing the hinge value for hatch 2 pos
         setPosBall1 = new JoystickButton(proJoystick, 12);
         setPosBall1.whenPressed(new setPosition(375.7, posBall1));
         setPosHatch1 = new JoystickButton(proJoystick, 11);
-        setPosHatch1.whenPressed(new setPosition(319.1, posHatch1));
+        setPosHatch1.whenPressed(new setPosition(800, posHatch1));
 
         setPosBottom = new JoystickButton(proJoystick, 3);
         setPosBottom.whenPressed(new setPosition(220.78, posBottom));
@@ -144,7 +144,7 @@ public class OI {
         /*manualArmToggle = new JoystickButton(proJoystick, 4);
         manualArmToggle.whenPressed(new manualArm());*/
 
-        armManual = new JoystickButton(proJoystick, 4);
+        armManual = new JoystickButton(proJoystick, 6);
         armManual arm = new armManual();
         armManual.whenReleased(arm);
 
@@ -170,6 +170,7 @@ public class OI {
         //SmartDashboard.putData("runWinch", new runWinch());
         //SmartDashboard.putData("dropBar", new dropBar());
         SmartDashboard.putData("reset hinge", new ResetHingeEncoder());
+        SmartDashboard.putData("reset arm", new ResetArmEncoder());
 
 
         //limelight button
