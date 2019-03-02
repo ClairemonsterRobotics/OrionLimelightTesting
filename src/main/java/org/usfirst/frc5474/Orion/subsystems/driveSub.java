@@ -99,7 +99,7 @@ public class driveSub extends Subsystem {
 
     public void arcadeDrive(Joystick stick, Boolean straight) {
         if (!straight) {
-            diffDrive.arcadeDrive(-stick.getY() * 0.8, stick.getRawAxis(4) * 0.6, true);
+            diffDrive.arcadeDrive(-stick.getY() * 0.75, stick.getRawAxis(4) * 0.7, true);
         } else {
 
             // =================================================

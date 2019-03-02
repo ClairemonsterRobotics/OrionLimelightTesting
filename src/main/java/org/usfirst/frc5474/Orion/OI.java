@@ -66,13 +66,15 @@ public class OI {
     public JoystickButton toggleClaw;
     public JoystickButton togglePusher;
     public JoystickButton TriggerR;
-	public JoystickButton TriggerL;
+    public JoystickButton TriggerL;
+    public JoystickButton clawPush;
+    public JoystickButton clawIntake;
     //public JoystickButton manualArm;
 
     public JoystickButton armManual;
     public JoystickButton resetEncoderButton;
     public JoystickButton setPreGamePos;
-    public JoystickButton hingeManual;
+    public JoystickButton moveManual;
     //public JoystickButton manualArmToggle;
 
     public Joystick proJoystick;
@@ -109,8 +111,8 @@ public class OI {
 
         proJoystick = new Joystick(1);
 
-        hingeManual = new JoystickButton(proJoystick, 5);
-        hingeManual.whenPressed(new manualHinge());
+        moveManual = new JoystickButton(proJoystick, 5);
+        moveManual.whenPressed(new manualMovement());
         
         setPreGamePos = new JoystickButton(proJoystick, 4);
         setPreGamePos.whenPressed(new setPosition(0.0, upright));
@@ -144,20 +146,24 @@ public class OI {
         /*manualArmToggle = new JoystickButton(proJoystick, 4);
         manualArmToggle.whenPressed(new manualArm());*/
 
-        armManual = new JoystickButton(proJoystick, 6);
-        armManual arm = new armManual();
-        armManual.whenPressed(arm);
+        //armManual = new JoystickButton(proJoystick, 6);
+        //armManual arm = new armManual();
+        //armManual.whenPressed(arm);
 
         xBOXController = new Joystick(0);
         resetEncoderButton = new JoystickButton(xBOXController, 7);
         resetEncoderButton.whenPressed(new ResetArmEncoder());
         
-        climbButton = new JoystickButton(xBOXController, 3);
+        climbButton = new JoystickButton(xBOXController, 1);
         climbButton.whileHeld(new climbSequence());
-        barButton = new JoystickButton(xBOXController, 2);
+        barButton = new JoystickButton(xBOXController, 3);
         barButton.whenPressed(new dropBar());
-        winchOnlyButton = new JoystickButton(xBOXController, 1);
-        winchOnlyButton.whileHeld(new runWinch());
+        clawIntake = new JoystickButton(xBOXController, 1);
+        clawIntake.whileHeld(new ClawIntake());
+        clawPush = new JoystickButton(xBOXController, 2);
+        clawPush.whileHeld(new ClawPush());
+        //winchOnlyButton = new JoystickButton(xBOXController, 1);
+        //winchOnlyButton.whileHeld(new runWinch());
 
 
         // SmartDashboard Buttons

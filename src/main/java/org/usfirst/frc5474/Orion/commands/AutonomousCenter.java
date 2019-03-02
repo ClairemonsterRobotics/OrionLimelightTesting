@@ -22,7 +22,7 @@ import org.usfirst.frc5474.Orion.Robot;
 public class AutonomousCenter extends Command {
     public int autonState = 1;
     public final int AS_foward1 = 1;
-    public final double foward1_Distance = 32; // 18 inches //100
+    public final double foward1_Distance = 35; // 18 inches //100
     public final int AS_right = 2;
     public final int right_Distance = (int)Math.round(12 * 2 * Math.PI); // 4pi ft / 180 degree turn; 2pi for 90 deg
     public final int AS_foward2 = 3;

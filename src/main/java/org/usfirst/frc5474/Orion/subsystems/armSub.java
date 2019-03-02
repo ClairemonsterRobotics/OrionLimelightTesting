@@ -204,7 +204,7 @@ public class armSub extends Subsystem {
 
 
     public void moveArmManual(double direction) {
-        armMotor.set(direction * 0.4);
+        armMotor.set(direction * 0.6);
         //double currentArmPos = armEncoder.getRaw(); //encoder no longer will work for getDistance()
         /*if (direction > 0) {
             if (currentArmPos <= 1.2) { //1.2 value (upper limit) needs to be changed probably!
@@ -312,6 +312,7 @@ public class armSub extends Subsystem {
         } else if (goUp == false){
             hingeTalon.set(ControlMode.Position, (hingeTalon.getSelectedSensorPosition() + 100)); //^^
         }
+        return;
     }
 
     /*public void bringUpright() {
