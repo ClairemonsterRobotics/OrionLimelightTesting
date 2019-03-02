@@ -34,6 +34,7 @@ public class AutonomousSide extends Command {
     private double turnSpeed = 0.1;
     private final double approachDistance = 24;
     private final double approachSpeed = 0.1;
+    private double invert = -1;
 
     public AutonomousSide(boolean isLeft) {
         if(isLeft){
@@ -44,12 +45,12 @@ public class AutonomousSide extends Command {
 
     private boolean AS_Dismount(double distR, double distL){
         double avg = 0.5*(distR+distL);
-        Robot.driveSub.driveStraight(dismountSpeed);
+        Robot.driveSub.driveStraight(dismountSpeed * invert);
         return (avg >= dismountDistance);
     }
     private boolean AS_Advance(double distR, double distL){
         double avg = 0.5*(distR+distL);
-        Robot.driveSub.driveStraight(advanceSpeed);
+        Robot.driveSub.driveStraight(advanceSpeed * invert);
         return (avg >= advanceDistance);
     }
     private boolean AS_Turn(double distR, double distL){
@@ -60,7 +61,7 @@ public class AutonomousSide extends Command {
     }
     private boolean AS_Approach(double distR, double distL){
         double avg = 0.5*(distR+distL);
-        Robot.driveSub.driveStraight(approachSpeed);
+        Robot.driveSub.driveStraight(approachSpeed * invert);
         return (avg >= approachDistance);
     }
     // Called just before this Command runs the first time

@@ -110,7 +110,7 @@ public class OI {
         proJoystick = new Joystick(1);
 
         hingeManual = new JoystickButton(proJoystick, 5);
-        hingeManual.toggleWhenPressed(new manualHinge());
+        hingeManual.whenPressed(new manualHinge());
         
         setPreGamePos = new JoystickButton(proJoystick, 4);
         setPreGamePos.whenPressed(new setPosition(0.0, upright));
@@ -146,7 +146,7 @@ public class OI {
 
         armManual = new JoystickButton(proJoystick, 6);
         armManual arm = new armManual();
-        armManual.whenReleased(arm);
+        armManual.whenPressed(arm);
 
         xBOXController = new Joystick(0);
         resetEncoderButton = new JoystickButton(xBOXController, 7);

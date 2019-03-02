@@ -47,19 +47,19 @@ public class armManual extends Command {
     @Override
     protected void initialize() {
         Robot.armSub.resetArmEncoder();
-        manualActivated = true;
+        //manualActivated = true;
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (manualActivated){
-            Robot.armSub.moveArmManual(Robot.oi.proJoystick.getRawAxis(1));
-        }
+        //if (manualActivated){
+        Robot.armSub.moveArmManual(Robot.oi.proJoystick.getRawAxis(1));
+        //}
         SmartDashboard.putBoolean("Manual Activated", manualActivated);
-        if (Robot.oi.armManual.get()){
-            manualActivated = !manualActivated;
-        }
+        //if (Robot.oi.armManual.get()){
+            //manualActivated = !manualActivated;
+        //}
             //Robot.armSub.moveArmManual(0);
 
         //Robot.armSub.moveArmToPos(armPosition);

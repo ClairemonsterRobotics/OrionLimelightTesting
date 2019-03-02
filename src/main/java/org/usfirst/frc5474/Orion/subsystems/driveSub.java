@@ -99,7 +99,7 @@ public class driveSub extends Subsystem {
 
     public void arcadeDrive(Joystick stick, Boolean straight) {
         if (!straight) {
-            diffDrive.arcadeDrive(-stick.getY(), stick.getRawAxis(4), true);
+            diffDrive.arcadeDrive(-stick.getY() * 0.8, stick.getRawAxis(4) * 0.6, true);
         } else {
 
             // =================================================
@@ -119,8 +119,8 @@ public class driveSub extends Subsystem {
             SmartDashboard.putNumber("Compensation Multiplier (Left)", compensationMult);
             // compensationMult = deltaDistance + 1;
             // diffDrive.arcadeDrive(power, 0, true); //not sure what this line does
-            leftMotorPair.set(-stick.getY());
-            rightMotorPair.set(stick.getY() * compensationMult); //multiplied times 0.8; removed
+            leftMotorPair.set(-stick.getY() * 0.8); //diferent 0.8 that is needed to make less jittery
+            rightMotorPair.set(stick.getY() * compensationMult * 0.8); //multiplied times 0.8; removed
 
         }
         // SmartDashboard.putNumber("x", stick.getX());

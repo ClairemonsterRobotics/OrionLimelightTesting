@@ -204,7 +204,7 @@ public class armSub extends Subsystem {
 
 
     public void moveArmManual(double direction) {
-        armMotor.set(direction * 0.7);
+        armMotor.set(direction * 0.4);
         //double currentArmPos = armEncoder.getRaw(); //encoder no longer will work for getDistance()
         /*if (direction > 0) {
             if (currentArmPos <= 1.2) { //1.2 value (upper limit) needs to be changed probably!
