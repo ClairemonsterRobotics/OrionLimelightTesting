@@ -127,19 +127,21 @@ public class OI {
         setPosHatch2 = new JoystickButton(proJoystick, 9);
         setPosHatch2.whenPressed(new setPosition(1200, posHatch2)); //only changing the hinge value for hatch 2 pos
         setPosBall1 = new JoystickButton(proJoystick, 12);
-        setPosBall1.whenPressed(new setPosition(375.7, posBall1));
+        setPosBall1.whenPressed(new setPosition(400, posBall1));
         setPosHatch1 = new JoystickButton(proJoystick, 11);
-        setPosHatch1.whenPressed(new setPosition(800, posHatch1));
+        setPosHatch1.whenPressed(new setPosition(350, posHatch1));
 
         setPosBottom = new JoystickButton(proJoystick, 3);
         setPosBottom.whenPressed(new setPosition(220.78, posBottom));
         //setPosBottom.whenPressed(new setPosition());
         //manualArm = new JoystickButton(proJoystick, 4);
         //manualArm.whenPressed(new activateManualArm());
+        /*
         toggleClaw = new JoystickButton(proJoystick, 1);
         toggleClaw.whenPressed(new Claw());
         togglePusher = new JoystickButton(proJoystick, 2);
         togglePusher.whenPressed(new Pusher());
+        */
         
         //temp. numbers for the setpos
         

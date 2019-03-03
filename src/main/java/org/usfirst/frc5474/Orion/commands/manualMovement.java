@@ -36,11 +36,13 @@ public class manualMovement extends Command {
     if (Robot.oi.proJoystick.getPOV() != -1) {
       if ((Robot.oi.proJoystick.getPOV() < 80 || Robot.oi.proJoystick.getPOV() > 280)){
           //&& Robot.oi.proJoystick.getPOV() != 1) {
-        Robot.armSub.manualHingeControl(false);
+        Robot.armSub.armSmallMove(true);
+        //Robot.armSub.manualHingeCIM(false);
         //SmartDashboard.putString("hinge state", "going up");
       } else if (100 < Robot.oi.proJoystick.getPOV() && Robot.oi.proJoystick.getPOV() < 260){
           //&& Robot.oi.proJoystick.getPOV() != 1) {
-        Robot.armSub.manualHingeControl(true);
+        Robot.armSub.armSmallMove(false);
+        //Robot.armSub.manualHingeCIM(true);
         //SmartDashboard.putString("hinge state", "going down");
       }
     }

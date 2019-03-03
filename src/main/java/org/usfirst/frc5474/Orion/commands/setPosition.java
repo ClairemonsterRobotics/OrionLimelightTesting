@@ -88,13 +88,13 @@ public class setPosition extends Command {
         counter++;
         //SmartDashboard.putNumber("counting up", counter);
         if (armMovingFinished == true) {
-            Robot.armSub.verifyArmStop();
-            armTimer.start();
-            Robot.armSub.moveArmManual(Robot.oi.proJoystick.getRawAxis(1));
-            if (armTimer.hasPeriodPassed(2)){
-                Robot.armSub.verifyArmStop();
+            //Robot.armSub.verifyArmStop();
+            //armTimer.start();
+            //Robot.armSub.moveArmManual(Robot.oi.proJoystick.getRawAxis(1));
+            //if (armTimer.hasPeriodPassed(2)){
+                //Robot.armSub.verifyArmStop();
                 isFinished();
-            }
+            //}
         }
     }
     // Make this return true when this Command no longer needs to run execute()
