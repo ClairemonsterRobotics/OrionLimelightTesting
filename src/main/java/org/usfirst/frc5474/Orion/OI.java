@@ -159,13 +159,7 @@ public class OI {
 
         // SmartDashboard Buttons
         SmartDashboard.putData("climbSequence", new climbSequence());
-        //SmartDashboard.putData("arcadeDrive", new arcadeDrive());
         SmartDashboard.putData("tractionDrive", new tractionDrive());
-        //SmartDashboard.putData("openClaw", new openClaw());
-        //SmartDashboard.putData("closeClaw", new closeClaw());
-        //SmartDashboard.putData("pushBall", new pushBall());
-        //SmartDashboard.putData("runWinch", new runWinch());
-        //SmartDashboard.putData("dropBar", new dropBar());
         SmartDashboard.putData("reset hinge", new ResetHingeEncoder());
         SmartDashboard.putData("reset arm", new ResetArmEncoder());
 
