@@ -74,8 +74,6 @@ public class OI {
 
         xBOXController = new Joystick(0);
         gateOpen = new JoystickButton(xBOXController, 1);
-        resetEncoderButton = new JoystickButton(xBOXController, 7);
-        resetEncoderButton.whenPressed(new ResetArmEncoder());
         
         climbButton = new JoystickButton(xBOXController, 1);
         barButton = new JoystickButton(xBOXController, 3);
@@ -84,8 +82,6 @@ public class OI {
 
         // SmartDashboard Buttons
         SmartDashboard.putData("tractionDrive", new tractionDrive());
-        SmartDashboard.putData("reset hinge", new ResetHingeEncoder());
-        SmartDashboard.putData("reset arm", new ResetArmEncoder());
 
         //limelight button
         SmartDashboard.putData("limelight", new limelight());
