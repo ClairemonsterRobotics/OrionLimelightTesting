@@ -105,7 +105,6 @@ public class Robot extends TimedRobot {
             autonomousCommand.start();
             new limelight();
             new arcadeDrive(); //may break auto
-            new manualMovement();
             //new armManual();
         }
         //CameraServer.startAutomaticCapture(0);

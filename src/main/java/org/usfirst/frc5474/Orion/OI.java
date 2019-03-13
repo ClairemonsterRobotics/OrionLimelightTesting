@@ -81,7 +81,6 @@ public class OI {
         //winchOnlyButton.whileHeld(new runWinch());
 
         // SmartDashboard Buttons
-        SmartDashboard.putData("tractionDrive", new tractionDrive());
 
         //limelight button
         SmartDashboard.putData("limelight", new limelight());
