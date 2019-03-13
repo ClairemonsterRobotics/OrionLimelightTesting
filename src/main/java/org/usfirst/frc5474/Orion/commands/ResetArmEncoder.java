@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ResetArmEncoder extends Command {
   public ResetArmEncoder() {
-    requires(Robot.armSub);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -21,7 +20,6 @@ public class ResetArmEncoder extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.armSub.resetArmEncoder();
   }
 
   // Called repeatedly when this Command is scheduled to run

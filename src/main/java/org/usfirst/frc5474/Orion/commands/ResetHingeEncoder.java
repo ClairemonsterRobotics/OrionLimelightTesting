@@ -15,13 +15,11 @@ public class ResetHingeEncoder extends Command {
   public ResetHingeEncoder() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.armSub);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.armSub.hingeReset();
   }
 
   // Called repeatedly when this Command is scheduled to run

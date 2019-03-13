@@ -7,17 +7,34 @@
 
 package org.usfirst.frc5474.Orion.commands;
 
+import org.usfirst.frc5474.Orion.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ClawIntake extends Command {
-  public ClawIntake() {
+public class gateOpen extends Command {
+
+  public boolean pusherDeActivated;
+
+  public gateOpen() {
+
+    //requires(Robot.pClawSub);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.pGateSub);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    pusherDeActivated = !pusherDeActivated;
+    if (pusherDeActivated == true){
+      Robot.pGateSub.pushBall();
+      end();
+    }
+    else {
+      Robot.pGateSub.returnPusher();
+      end();
+    }
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -34,6 +51,7 @@ public class ClawIntake extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    cancel();
   }
 
   // Called when another command which requires one or more of the same

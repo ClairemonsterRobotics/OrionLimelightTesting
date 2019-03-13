@@ -60,7 +60,6 @@ public class tractionDrive extends Command {
     @Override
     protected void initialize() {
         startDriveDistance = Robot.driveSub.GetandPutDistance();
-        startWinchDistance = Robot.climbSub.GetandPutDistance();
 
         timeState = TIME_STATE_LIFT;
 		driveTimer = new Timer();
@@ -90,7 +89,6 @@ public class tractionDrive extends Command {
 
             case TIME_STATE_PULL_IN: {
                 time = 5;
-                Robot.climbSub.spinWinch(1);
                 currentWinchDistance = Robot.driveSub.GetandPutDistance() - startWinchDistance;
                 SmartDashboard.putNumber("Pull in state winch distance", currentWinchDistance);
 
@@ -101,15 +99,12 @@ public class tractionDrive extends Command {
 
             case TIME_STATE_GRAB_HOLD: {
                 time = 2.5;
-                Robot.climbSub.spinWinch(0.3);
                 Robot.driveSub.driveStraight(0.4);
-                currentWinchDistance = Robot.climbSub.GetandPutDistance() - currentWinchDistance;
                 SmartDashboard.putNumber("Grab hold state winch distance", currentWinchDistance);
                 currentDriveDistance = Robot.driveSub.GetandPutDistance() - currentDriveDistance;
                 SmartDashboard.putNumber("Grab hold state drive distance", currentDriveDistance);
 
                 while(currentWinchDistance < finalWinchDistance) {
-                    Robot.climbSub.spinWinch(0.2);
                 }
 
                 if (driveTimer.hasPeriodPassed(time)){
@@ -120,7 +115,6 @@ public class tractionDrive extends Command {
             case TIME_STATE_PULL_UP: {
                 time = 4;
                 Robot.driveSub.driveStraight(0.6);
-                currentDriveDistance = Robot.climbSub.GetandPutDistance() - currentDriveDistance;
                 SmartDashboard.putNumber("Pull up state drive distance", currentDriveDistance);
 
                 while(currentDriveDistance < finalDriveDistance) {
