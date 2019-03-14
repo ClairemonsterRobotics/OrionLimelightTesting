@@ -10,8 +10,12 @@ package org.usfirst.frc5474.Orion.commands;
 import org.usfirst.frc5474.Orion.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Timer;
 
 public class gateOpen extends Command {
+
+  private Timer gateTimer;
 
   public boolean pusherDeActivated;
 
@@ -26,20 +30,20 @@ public class gateOpen extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    pusherDeActivated = !pusherDeActivated;
-    if (pusherDeActivated == true){
-      Robot.pGateSub.pushBall();
-      end();
-    }
-    else {
-      Robot.pGateSub.returnPusher();
-      end();
-    }
+    gateTimer = new Timer();
+    Robot.pGateSub.pistonExtend();
+    gateTimer.start();
+    SmartDashboard.putString("starting gate position", "open");
   }
-
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(gateTimer.hasPeriodPassed(5)){
+      Robot.pGateSub.pistonRetract();
+      SmartDashboard.putString("ending gate position", "closed");
+      gateTimer.reset();
+      end();
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
