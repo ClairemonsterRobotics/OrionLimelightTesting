@@ -10,40 +10,29 @@ package org.usfirst.frc5474.Orion.commands;
 import org.usfirst.frc5474.Orion.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.Timer;
 
-public class gateOpen extends Command {
+public class MoveSlider extends Command {
+  public MoveSlider() {
+    requires(Robot.pGateSub);
 
-  private Timer gateTimer;
-
-  public boolean pusherDeActivated;
-
-  public gateOpen() {
-
-    //requires(Robot.pClawSub);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.pGateSub);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    gateTimer = new Timer();
-    Robot.pGateSub.gateExtend();
-    gateTimer.start();
-    SmartDashboard.putString("starting gate position", "open");
+    Robot.SliderToggle = !Robot.SliderToggle;
+    if(Robot.SliderToggle){
+      Robot.pGateSub.sliderExtend();
+    } else {
+      Robot.pGateSub.sliderRetract();
+    }
   }
+
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(gateTimer.hasPeriodPassed(5)){
-      Robot.pGateSub.gateRetract();
-      SmartDashboard.putString("ending gate position", "closed");
-      gateTimer.reset();
-      end();
-    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -55,7 +44,6 @@ public class gateOpen extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    cancel();
   }
 
   // Called when another command which requires one or more of the same

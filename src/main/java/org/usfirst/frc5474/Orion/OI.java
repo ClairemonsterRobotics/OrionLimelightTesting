@@ -64,6 +64,8 @@ public class OI {
     public JoystickButton moveManual;
     public JoystickButton gateOpen;
     public JoystickButton gateOpenHold;
+    public JoystickButton pistonActuate;
+    public JoystickButton moveSlider;
     //public JoystickButton manualArmToggle;
 
     public Joystick proJoystick;
@@ -81,6 +83,12 @@ public class OI {
         //GateOpenHold added code ======
         gateOpenHold = new JoystickButton(xBOXController, 6);
         gateOpenHold.whileHeld(new gateOpenHold());
+
+        pistonActuate = new JoystickButton(xBOXController, 3);
+        pistonActuate.whenPressed(new PistonActuate());
+
+        moveSlider = new JoystickButton(xBOXController, 4);
+        moveSlider.whenPressed(new MoveSlider());
         // ===========
 
         //climbButton = new JoystickButton(xBOXController, 1);

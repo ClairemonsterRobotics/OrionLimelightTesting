@@ -56,10 +56,10 @@ public class limelight extends Command {
       if (Robot.oi.xBOXController.getRawButton(7)){
         ledOn = !ledOn;
         if (ledOn) {
-          NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").getDouble(1);
+          NetworkTableInstance.getDefault().getTable("limelight-orion").getEntry("ledMode").getDouble(1);
           ledOn = false;
         } else if (ledOn == false){
-          NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").getDouble(3);
+          NetworkTableInstance.getDefault().getTable("limelight-orion").getEntry("ledMode").getDouble(3);
         }
       }
 

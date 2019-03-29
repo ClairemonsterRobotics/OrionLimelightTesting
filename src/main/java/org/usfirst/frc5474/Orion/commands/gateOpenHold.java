@@ -24,7 +24,7 @@ public class gateOpenHold extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.pGateSub.pistonExtend();
+    Robot.pGateSub.gateExtend();
   }
   // Called repeatedly when this Command is scheduled to run
   @Override
@@ -45,7 +45,7 @@ public class gateOpenHold extends Command {
 
   @Override
   public synchronized void cancel() {
-    Robot.pGateSub.pistonRetract();
+    Robot.pGateSub.gateRetract();
     super.cancel();
   }
 
