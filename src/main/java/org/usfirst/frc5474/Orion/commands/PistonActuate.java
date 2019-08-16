@@ -28,6 +28,7 @@ public class PistonActuate extends Command {
     else {
       Robot.pGateSub.pistonRetract();
     }
+    end();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -44,11 +45,13 @@ public class PistonActuate extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    cancel();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    cancel();
   }
 }
