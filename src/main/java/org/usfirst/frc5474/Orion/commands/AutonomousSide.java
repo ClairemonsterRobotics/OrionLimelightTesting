@@ -112,7 +112,7 @@ public class AutonomousSide extends Command {
             case END:
                 Robot.driveSub.resetEncoders();
                 Robot.driveSub.stop();
-                new arcadeDrive();
+                new ourArcadeDrive();
                 break;
             default:
                 Robot.driveSub.resetEncoders();

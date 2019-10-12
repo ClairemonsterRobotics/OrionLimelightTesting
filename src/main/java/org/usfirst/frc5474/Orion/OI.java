@@ -80,7 +80,7 @@ public class OI {
         xBOXController = new Joystick(0);
 
         limelightbutton = new JoystickButton(xBOXController, 1);
-        limelightbutton.whenPressed(new limelight());
+        limelightbutton.whileHeld(new limelight());
 
         gateOpen = new JoystickButton(xBOXController, 2);
         gateOpen.whenPressed(new gateOpen());
