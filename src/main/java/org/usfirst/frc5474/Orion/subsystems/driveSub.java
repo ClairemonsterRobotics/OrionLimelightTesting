@@ -204,7 +204,7 @@ public class driveSub extends Subsystem {
 
     public void limelightDrive(double m_LimelightDriveCommand, double m_LimelightSteerCommand){
 
-                diffDrive.arcadeDrive(m_LimelightDriveCommand, m_LimelightSteerCommand, true); //not sure what this line does
+                diffDrive.arcadeDrive(m_LimelightDriveCommand, m_LimelightSteerCommand, true);
         
                 // leftMotorPair.set(power);
                 // rightMotorPair.set(-power * compensationMult * .80);

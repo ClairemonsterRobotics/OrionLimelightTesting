@@ -73,9 +73,11 @@ public class AutonomousCenter extends Command {
             if (distanceAvg < foward1_Distance) { // if not at the target location
                 Robot.driveSub.driveStraight(invert * 0.3); // drive straight at some power
                 new limelight();
+                cancel();
             } else {
                 Robot.driveSub.stop();
                 new ourArcadeDrive();
+                cancel();
             }
         }
 

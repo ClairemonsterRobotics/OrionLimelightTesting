@@ -34,9 +34,10 @@ public class limelight extends Command {
     private double m_LimelightDriveCommand = 0.0;
     private double m_LimelightSteerCommand = 0.0;
 
-    final double STEER_K = 0.1;                    // how hard to turn toward the target
+    final double STEER_K = 0.25;                    // how hard to turn toward the target (change this value to change how far you turn towards the target)
     final double DRIVE_K = 0.26;                    // how hard to drive fwd toward the target
-    final double DESIRED_TARGET_AREA = 11.0;        // Area of the target when the robot reaches the wall
+    final double DESIRED_TARGET_AREA = 8.0; 
+           // Area of the target when the robot reaches the wall
     final double MAX_DRIVE = 0.7;                   // Simple speed limit so we don't drive too fast
   
     //public float estimateDistance;
@@ -68,7 +69,7 @@ public class limelight extends Command {
       Update_Limelight_Tracking();
 
       m_LimelightDriveCommand *= .75;
-      m_LimelightSteerCommand *= .5;
+      m_LimelightSteerCommand *= .35;
 
       SmartDashboard.putNumber("drive value", m_LimelightDriveCommand);
       SmartDashboard.putNumber("steer value", m_LimelightSteerCommand);

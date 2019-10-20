@@ -30,7 +30,7 @@ public class AutonomousSide extends Command {
     private final double dismountSpeed = 0.3;
     private final double advanceDistance = 56;
     private final double advanceSpeed = 0.1;
-    private double turnDegrees = 30;
+    private double turnDegrees = 28;
     private double turnSpeed = 0.1;
     private final double approachDistance = 24;
     private final double approachSpeed = 0.1;

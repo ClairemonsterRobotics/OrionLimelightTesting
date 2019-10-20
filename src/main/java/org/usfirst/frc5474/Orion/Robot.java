@@ -113,8 +113,8 @@ public class Robot extends TimedRobot {
         // schedule the autonomous command (example)
         if (autonomousCommand != null){
             autonomousCommand.start();
-            new limelight();
-            new ourArcadeDrive(); //may break auto
+            //new limelight();
+            //new ourArcadeDrive(); //may break auto
             //new armManual();
         }
         //CameraServer.startAutomaticCapture(0);
